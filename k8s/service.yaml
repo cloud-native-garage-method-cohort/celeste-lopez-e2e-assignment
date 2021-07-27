@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: celeste-lopez-e2e-assignment
+    app.kubernetes.io/instance: celeste-lopez-e2e-assignment-instance
+    app.kubernetes.io/name: celeste-lopez-e2e-assignment
+  name: celeste-lopez-e2e-assignment
+spec:
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 3000
+  selector:
+    app.kubernetes.io/instance: celeste-lopez-e2e-assignment-app-instance
+    app.kubernetes.io/name: celeste-lopez-e2e-assignment
+  sessionAffinity: None
+  type: ClusterIP
